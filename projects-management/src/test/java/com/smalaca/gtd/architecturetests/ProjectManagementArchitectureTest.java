@@ -20,6 +20,9 @@ public class ProjectManagementArchitectureTest {
                         JAVA, JPA, APACHE_COMMONS, FINDBUGS,
                         DOMAIN)
 
+                .as("Domain should be independent")
+                .because("0003-project-management-hexagonal-architecture.md")
+
                 .check(CodeBase.projectManagementClasses());
     }
 }
