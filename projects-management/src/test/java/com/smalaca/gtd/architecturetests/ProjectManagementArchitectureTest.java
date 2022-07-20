@@ -41,4 +41,19 @@ public class ProjectManagementArchitectureTest {
 
                 .check(CodeBase.projectManagementClasses());
     }
+
+    @Test
+    void shouldVerifyIsThatPortAndAdaptersArchitecture() {
+        Architectures.onionArchitecture()
+                .domainModels(APPLICATION)
+                .domainServices(APPLICATION)
+                .applicationServices(DOMAIN)
+                .adapter("REST-API", "com.smalaca.gtd.projectmanagement.infrastructure.api.web.rest..")
+                .adapter("REPOSITORY", "com.smalaca.gtd.projectmanagement.infrastructure.repository.jpa..")
+
+                .as("Hexagonal Architecture should be followed")
+                .because("0003-project-management-hexagonal-architecture.md")
+
+                .check(CodeBase.projectManagementClasses());
+    }
 }
